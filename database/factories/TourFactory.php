@@ -17,7 +17,10 @@ class TourFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'name' => $this->faker->text(20),
+            'starting_date' => now(),
+            'ending_date' => now()->addDays(rand(1,10)),
+            'price' => $this->faker->randomFloat(2, 10, 999),
         ];
     }
 }
