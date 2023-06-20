@@ -1,3 +1,6 @@
+
+https://www.youtube.com/watch?v=ufiaMmbXE1Q
+
 # sail artisan make:observer TravelObserver --model=Travel
 
 # Slug
@@ -13,10 +16,9 @@ sail artisan test --filter=ToursListTest
 # alias 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
-
+# filtering 
 http://localhost/api/v1/travels/some-thing/tours?priceFrom=80&dateFrom=2023-12-15&sortBy=price&sortOrder=asc
 
-https://www.youtube.com/watch?v=G-bz_FIcczg&t=5s
 
 # deploy
 docker run --rm \
@@ -25,3 +27,15 @@ docker run --rm \
 -w /var/www/html \
 laravelsail/php82-composer:latest \
 composer install --ignore-platform-reqs
+
+# create command
+sail artisan make:command CreateUserCommand
+
+# create user
+sail artisan users:create
+
+# create seeder
+sail artisan make:seeder RoleSeeder
+
+# run seeder
+sail artisan db:seed --class=RoleSeeder
