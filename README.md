@@ -1,5 +1,4 @@
-
-https://www.youtube.com/watch?v=ufiaMmbXE1Q
+https://www.youtube.com/watch?v=ufiaMmbXE1Q 11.57
 
 # sail artisan make:observer TravelObserver --model=Travel
 
@@ -11,6 +10,8 @@ App\Models\Travel::create(['name' => 'Some thing', 'description' => 'aaa', 'numb
 
 # tests
 sail artisan make:test TravelsListTest
+sail artisan make:test LoginTest
+
 sail artisan test --filter=ToursListTest
 
 # alias 
@@ -39,3 +40,6 @@ sail artisan make:seeder RoleSeeder
 
 # run seeder
 sail artisan db:seed --class=RoleSeeder
+
+# create invokable controller
+sail artisan make:controller Api/V1/Auth/LoginController --invokable
