@@ -13,13 +13,13 @@ class LoginController extends Controller
     /**
      * Handle the incoming request.
      */
-    public function __invoke(LoginRequest $request)
+    public function __invoke(LoginRequest $request): \Illuminate\Http\JsonResponse
     {
         $user = User::query()
             ->where('email', $request->email)
             ->first();
 
-        if (!$user || Hash::check($request->password, $user->password)) {
+        if (! $user || ! Hash::check($request->password, $user->password)) {
             return response()->json([
                 'error' => 'The provided credentials are incorrect.',
             ], 422);

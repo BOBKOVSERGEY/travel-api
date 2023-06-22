@@ -1,4 +1,4 @@
-https://www.youtube.com/watch?v=ufiaMmbXE1Q 11.57
+https://www.youtube.com/watch?v=glDKQxYSJlw&t=4s 3.17
 
 # sail artisan make:observer TravelObserver --model=Travel
 
