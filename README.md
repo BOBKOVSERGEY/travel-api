@@ -43,3 +43,6 @@ sail artisan db:seed --class=RoleSeeder
 
 # create invokable controller
 sail artisan make:controller Api/V1/Auth/LoginController --invokable
+
+# laravel pint
+composer require laravel/pint --dev

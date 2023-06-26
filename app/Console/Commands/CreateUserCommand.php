@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 
 namespace App\Console\Commands;
 
@@ -27,10 +28,7 @@ class CreateUserCommand extends Command
      */
     protected $description = 'Create a new user';
 
-    /**
-     * Execute the console command.
-     */
-    public function handle()
+    public function handle(): int
     {
         $user['name'] = $this->ask('Name of the new user');
         $user['email'] = $this->ask('Email of the new user');
@@ -39,7 +37,7 @@ class CreateUserCommand extends Command
         $roleName = $this->choice('Role of the new user', ['admin', 'editor'], 1);
         $role = Role::query()->where('name', $roleName)->first();
 
-        if(!$role) {
+        if (!$role) {
             $this->error('Role not found');
             return - 1;
         }
@@ -47,7 +45,7 @@ class CreateUserCommand extends Command
         $validator = Validator::make($user, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', Password::default()],
+            'password' => ['required', Password::default()]
         ]);
 
         if($validator->fails()) {
